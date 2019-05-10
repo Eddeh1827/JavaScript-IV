@@ -88,14 +88,14 @@ class Student extends Person {
     this.className = className;
     this.favSubjects = favSubjects;
   }
-  listsSubjects() {
-    return `${this.favSubjects}`;
+  listSubjects() {
+    return `${this.favSubjects.forEach(el => console.log("element", el))}`;
   }
   PRAssignment(subject) {
-    console.log(`${this.name} submitted a PR for ${subject}`);
+    return `${this.name} submitted a PR for ${subject}`;
   }
   sprintChallenge(subject) {
-    console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    return `${this.name} has begun sprint challenge on ${subject}`;
   }
 }
 
@@ -125,12 +125,10 @@ class ProjectManagers extends Instructor {
     this.favInstructor = favInstructor;
   }
   standUp(slackChannel) {
-    console.log(
-      `${this.name} announces to ${slackChannel} @channel standby times!`
-    );
+    return `${this.name} announces to ${slackChannel} @channel standby times!`;
   }
   debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${student}'s code on ${subject}`);
+    return `${this.name} debugs ${student}'s code on ${subject}`;
   }
 }
 
@@ -149,12 +147,12 @@ const dan = new Instructor({
   age: 40,
   favLanguage: "CatScript",
   specialty: "KittyLitter",
-  catchPhrase: `Don't for get TacoCat!`
+  catchPhrase: `Don't forget TacoCat!`
 });
 /////////////////////Students//////////////////////////
 const eddie = new Student({
   name: "Eddie",
-  location: "Adelanto",
+  location: "Los Angeles",
   age: 32,
   favLanguage: "JavaScript",
   specialty: "Front-End",
@@ -197,3 +195,12 @@ const will = new ProjectManagers({
 });
 console.log(isaac.standUp("@WEB20_isaac"));
 console.log(isaac.debugsCode("Eddie", "JavaScript"));
+console.log(eddie.speak());
+console.log(eddie.favSubjects);
+console.log(eddie.sprintChallenge("JavaScript"));
+console.log(chuck.PRAssignment("JS Sprint"));
+console.log(fred.demo("Math"));
+console.log(fred.specialty);
+console.log(dan.grade("Eddie", "JavaScript"));
+console.log(dan.catchPhrase);
+console.log(will.gradClassName);
